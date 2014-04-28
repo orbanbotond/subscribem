@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140428110406) do
+ActiveRecord::Schema.define(version: 20140428155742) do
 
   create_table "subscribem_accounts", force: true do |t|
     t.string   "name"
@@ -48,5 +48,12 @@ ActiveRecord::Schema.define(version: 20140428110406) do
 
   add_index "subscribem_users", ["email"], name: "index_subscribem_users_on_email", unique: true
   add_index "subscribem_users", ["reset_password_token"], name: "index_subscribem_users_on_reset_password_token", unique: true
+
+  create_table "things", force: true do |t|
+    t.string   "name"
+    t.integer  "account_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
 end
