@@ -1,12 +1,17 @@
-require "subscribem/active_record_extensions"
+# require "subscribem/active_record_extensions"
 require "warden"
 require "dynamic_form"
 require "pry"
 require "pry-nav"
+require "apartment"
 
 module Subscribem
   class Engine < ::Rails::Engine
     isolate_namespace Subscribem
+
+    initializer "subscribem.middleware.apartment" do
+      Rails.application.config.middleware.use Apartment::Elevators::Subdomain
+    end
 
     initializer "subscribem.middleware.warden" do
       Rails.application.config.middleware.use Warden::Manager do |manager|
