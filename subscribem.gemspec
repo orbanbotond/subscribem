@@ -22,7 +22,7 @@ Gem::Specification.new do |s|
   s.add_dependency "bcrypt-ruby", "3.1.2"
   s.add_dependency "warden", "1.2.3"
   s.add_dependency "dynamic_form", "1.1.4"
-  s.add_dependency "apartment", "0.22.1"
+  s.add_dependency "houser", "1.0.2"
 
   s.add_development_dependency "database_cleaner", "1.0.1"
   s.add_development_dependency 'pry'

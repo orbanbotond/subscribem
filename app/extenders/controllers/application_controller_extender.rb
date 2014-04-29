@@ -1,14 +1,9 @@
 ::ApplicationController.class_eval do
   def current_account
-    @current_account ||= Subscribem::Account.find_by(subdomain: request.subdomain)
-    # if user_signed_in?
-    #   @current_account ||= begin
-    #     account_id = env["warden"].user(:scope => :account)
-    #     Subscribem::Account.find(account_id)
-    #   end
-    # end
+    @current_account ||= env['X-Houser-Object']
   end
   helper_method :current_account
+
   def current_user
     if user_signed_in?
       @current_user ||= begin
@@ -18,11 +13,13 @@
     end
   end
   helper_method :current_user
+
   def user_signed_in?
     env["warden"] && env["warden"].authenticated?(:user)
   end
   helper_method :user_signed_in?
-   def authenticate_user!
+
+  def authenticate_user!
     unless user_signed_in?
       flash[:info] = "Please sign in."
       redirect_to '/sign_in'
