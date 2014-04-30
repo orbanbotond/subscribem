@@ -12,6 +12,8 @@ Subscribem::Engine.routes.draw do
   end
 
   root "dashboard#index"
+  devise_for :users, class_name: "Subscribem::User", controllers: { sessions: 'devise/sessions', passwords: 'devise/passwords', registrations: 'devise/registrations' }
+
   get '/sign_up', :to => "accounts#new", :as => :sign_up
   post "/accounts", :to => "accounts#create", :as => :accounts
 end

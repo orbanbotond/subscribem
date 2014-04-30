@@ -1,7 +1,8 @@
 # require "subscribem/active_record_extensions"
-require 'warden'
-require 'dynamic_form'
+require 'devise'
 require 'houser'
+require 'slim'
+require 'simple_form'
 
 module Subscribem
   class Engine < ::Rails::Engine

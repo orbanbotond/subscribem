@@ -27,7 +27,7 @@ feature 'Accounts' do
     click_button "Create Account"
     page.current_url.should == "http://example.com/accounts"
     page.should have_content("Sorry, your account could not be created.")
-    page.should have_content("Subdomain has already been taken")
+    page.should have_content("has already been taken")
   end
   scenario "Subdomain with restricted name" do
     visit subscribem.root_path
@@ -40,7 +40,7 @@ feature 'Accounts' do
     click_button "Create Account"
     page.current_url.should == "http://example.com/accounts"
     page.should have_content("Sorry, your account could not be created.")
-    page.should have_content("Subdomain is not allowed. Please choose another subdomain.")
+    page.should have_content("is not allowed. Please choose another subdomain.")
   end
   scenario "Subdomain with invalid name" do
     visit subscribem.root_path
@@ -53,7 +53,6 @@ feature 'Accounts' do
     click_button "Create Account"
     page.current_url.should == "http://example.com/accounts"
     page.should have_content("Sorry, your account could not be created.")
-    page.should have_content("Subdomain is not allowed. Please choose another subdomain.")
+    page.should have_content("is not allowed. Please choose another subdomain.")
   end
-
 end

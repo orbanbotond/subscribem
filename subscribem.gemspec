@@ -16,18 +16,24 @@ Gem::Specification.new do |s|
 
   s.files = Dir["{app,config,db,lib}/**/*", "MIT-LICENSE", "Rakefile", "README.rdoc"]
 
-  s.add_dependency "pg"
-  s.add_dependency "rails", "~> 4.1.0"
-  s.add_dependency "devise"
-  s.add_dependency "bcrypt-ruby", "3.1.2"
-  s.add_dependency "warden", "1.2.3"
-  s.add_dependency "dynamic_form", "1.1.4"
-  s.add_dependency "houser", "1.0.2"
+  s.add_dependency 'pg'
+  s.add_dependency 'rails', '~> 4.1.0'
+  s.add_dependency 'devise'
+  s.add_dependency 'houser', '1.0.2'
+  s.add_dependency 'simple_form'
+  s.add_dependency 'slim', '~> 2.0.2'
+  s.add_dependency 'omniauth-facebook'
+  s.add_dependency 'omniauth-google-oauth2'
+  s.add_dependency 'omniauth-twitter'
+  s.add_dependency 'omniauth-instagram'
+  s.add_dependency 'omniauth-github'
 
-  s.add_development_dependency "database_cleaner", "1.0.1"
+  s.add_development_dependency 'minitest'
+  s.add_development_dependency 'annotate'
+  s.add_development_dependency 'database_cleaner', '1.0.1'
   s.add_development_dependency 'pry'
   s.add_development_dependency 'pry-nav'
-  s.add_development_dependency "factory_girl", "4.1.0"
+  s.add_development_dependency 'factory_girl', '4.1.0'
   s.add_development_dependency 'rspec-rails', '2.14.0'
   s.add_development_dependency 'capybara', '2.1.0'
 end

@@ -1,3 +1,15 @@
+# == Schema Information
+#
+# Table name: subscribem_accounts
+#
+#  id         :integer          not null, primary key
+#  name       :string(255)
+#  created_at :datetime
+#  updated_at :datetime
+#  owner_id   :integer
+#  subdomain  :string(255)
+#
+
 require 'spec_helper'
 
 describe Subscribem::Account do
@@ -12,18 +24,12 @@ describe Subscribem::Account do
       }
     }
     account = Subscribem::Account.create_with_owner(params)
-    account.should be_persisted
-    account.users.first.should == account.owner
+    expect(account).to be_persisted
+    expect(users.first.should).to eql(account.owner)
   end
   it "cannot create an account without a subdomain" do
     account = Subscribem::Account.create_with_owner
-    account.should_not be_valid
-    account.users.should be_empty
-  end
-  def schema_exists?(account)
-    query = %Q{SELECT nspname FROM pg_namespace 
-              WHERE nspname='#{account.subdomain}'}
-    result = ActiveRecord::Base.connection.select_value(query)
-    result.present?
+    expect(account).not_to be_valid
+    expect(account.users).not_to be_empty
   end
 end
