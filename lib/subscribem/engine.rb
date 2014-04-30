@@ -1,8 +1,6 @@
 # require "subscribem/active_record_extensions"
 require 'warden'
 require 'dynamic_form'
-require 'pry'
-require 'pry-nav'
 require 'houser'
 
 module Subscribem

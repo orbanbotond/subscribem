@@ -6,6 +6,8 @@ require 'rspec/autorun'
 require 'capybara/rspec'
 require "factory_girl"
 require "database_cleaner"
+require 'pry'
+require 'pry-nav'
 
 # Requires supporting ruby files with custom matchers and macros, etc,
 # in spec/support/ and its subdirectories.
