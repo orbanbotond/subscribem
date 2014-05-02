@@ -1,4 +1,4 @@
-require "subscribem/constraints/subdomain_required"
+require 'subscribem/constraints/subdomain_required'
 
 Subscribem::Engine.routes.draw do
   constraints(Subscribem::Constraints::SubdomainRequired) do
@@ -11,9 +11,9 @@ Subscribem::Engine.routes.draw do
     end
   end
 
-  root "dashboard#index"
-  devise_for :users, class_name: "Subscribem::User", controllers: { sessions: 'devise/sessions', passwords: 'devise/passwords', registrations: 'devise/registrations' }
+  root 'dashboard#index'
+  devise_for :users, class_name: 'Subscribem::User', module: :devise
+  get '/sign_up', :to => 'accounts#new', :as => :sign_up
 
-  get '/sign_up', :to => "accounts#new", :as => :sign_up
-  post "/accounts", :to => "accounts#create", :as => :accounts
+  resources :accounts, only: [:create, :index]
 end

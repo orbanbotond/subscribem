@@ -25,7 +25,8 @@ module Subscribem
               exclusion: { in: %w(admin), message: 'is not allowed. Please choose another subdomain.'}
 
     validates :name,
-              :presence => true
+              presence: true,
+              uniqueness: {scope: :owner_id}
 
     before_validation do
       self.subdomain = subdomain.to_s.downcase

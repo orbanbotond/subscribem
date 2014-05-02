@@ -18,6 +18,7 @@ Gem::Specification.new do |s|
 
   s.add_dependency 'pg'
   s.add_dependency 'rails', '~> 4.1.0'
+  s.add_dependency 'jquery-rails'
   s.add_dependency 'devise'
   s.add_dependency 'houser', '1.0.2'
   s.add_dependency 'simple_form'

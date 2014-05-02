@@ -2,6 +2,11 @@ require_dependency "subscribem/application_controller"
 
 module Subscribem
   class AccountsController < ApplicationController
+
+    before_filter :redirect_logged_in_users, except: :index
+
+    def index
+    end
     def new
       @account = Subscribem::Account.new
       @account.build_owner
@@ -23,6 +28,9 @@ module Subscribem
       params.require(:account).permit(:name, :subdomain, { :owner_attributes => [
         :email, :password, :password_confirmation
       ]})
+    end
+    def redirect_logged_in_users
+      redirect_to subscribem.accounts_path if user_signed_in?
     end
   end
 end
