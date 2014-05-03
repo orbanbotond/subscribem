@@ -20,6 +20,8 @@
 
 module Subscribem
   class User < ActiveRecord::Base
+    has_many :accounts, :class_name => "Subscribem::Account", :foreign_key => "owner_id"
+
     # Include default devise modules. Others available are:
     # :confirmable, :lockable, :timeoutable and :omniauthable
     devise :database_authenticatable,

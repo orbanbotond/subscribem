@@ -1,6 +1,7 @@
 require 'subscribem/constraints/subdomain_required'
 
 Subscribem::Engine.routes.draw do
+
   constraints(Subscribem::Constraints::SubdomainRequired) do
     scope :module => "account" do
       root :to => "dashboard#index", :as => :account_root
@@ -11,7 +12,7 @@ Subscribem::Engine.routes.draw do
     end
   end
 
-  root 'dashboard#index'
+  root 'welcome#index'
   devise_for :users, class_name: 'Subscribem::User', module: :devise
   get '/sign_up', :to => 'accounts#new', :as => :sign_up
 

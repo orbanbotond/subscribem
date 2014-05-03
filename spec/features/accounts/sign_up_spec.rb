@@ -4,8 +4,7 @@ feature 'Accounts' do
   context 'signed in users' do
     scenario 'should redirect to accounts page' do
       sign_in
-      visit subscribem.root_path
-      click_link 'Account Sign Up'
+      visit subscribem.sign_up_path
       expect(page.current_url).to match(/#{subscribem.accounts_path}/)
     end
   end
