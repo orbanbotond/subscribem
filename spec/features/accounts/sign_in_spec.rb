@@ -6,7 +6,6 @@ feature 'Sign In' do
       account = create :account
       sign_in account.owner, attributes_for(:user)[:password]
       expect(page.current_url).to match(/#{subscribem.accounts_path}/)
-      expect(page).to have_text(account.name)
     end
   end
   context 'invalid users' do

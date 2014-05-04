@@ -5,6 +5,8 @@ module Subscribem
 
     before_filter :redirect_logged_in_users_to_account_page, except: :index
 
+    before_action :authenticate_user!, except: [:new, :create]
+
     def index
       @accounts = current_user.accounts
     end
