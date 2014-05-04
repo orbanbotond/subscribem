@@ -7,13 +7,13 @@ feature "Account scoping" do
     Thing.scoped_to(account_b).create(:name => "Account B's Thing")
   end
   scenario "displays only account A's records" do
-    sign_in_as(:user => account_a.owner, :account => account_a)
+    sign_in(account_a.owner, attributes_for(:user)[:password])
     visit main_app.things_url(:subdomain => account_a.subdomain)
     page.should have_content("Account A's Thing")
     page.should_not have_content("Account B's Thing")
   end
   scenario "displays only account B's records" do
-    sign_in_as(:user => account_b.owner, :account => account_b)
+    sign_in(account_b.owner, attributes_for(:user)[:password])
     visit main_app.things_url(:subdomain => account_b.subdomain)
     page.should have_content("Account B's Thing")
     page.should_not have_content("Account A's Thing")

@@ -7,43 +7,39 @@ feature "User sign in" do
   within_account_subdomain do
     scenario "signs in as an account owner successfully" do
       visit root_url
-      page.current_url.should == sign_in_url
-      fill_in "Email", :with => account.owner.email
-      fill_in "Password", :with => "password"
+      expect(page.current_url).to eq(subscribem.new_user_session_url(subdomain: account.subdomain))
+      fill_in "user_email", :with => account.owner.email
+      fill_in "user_password", :with => "password"
       click_button "Sign in"
-      page.should have_content("You are now signed in.")
-      page.current_url.should == root_url
+      expect(page).to have_content("Signed in as #{account.owner.email}")
+      expect(page.current_url).to eq(subscribem.root_url(subdomain: account.subdomain))
     end
     scenario "attempts sign in with an invalid password and fails" do
-      visit subscribem.root_url(:subdomain => account.subdomain)
-      page.current_url.should == sign_in_url
-      page.should have_content("Please sign in.")
-      fill_in "Email", :with => account.owner.email
-      fill_in "Password", :with => "drowssap"
+      visit root_url
+      expect(page.current_url).to eq(subscribem.new_user_session_url(subdomain: account.subdomain))
+      fill_in "user_email", :with => account.owner.email
+      fill_in "user_password", :with => "invalidpwd"
       click_button "Sign in"
-      page.should have_content("Invalid email or password.")
-      page.current_url.should == sign_in_url
+      expect(page).to have_content("Invalid email or password.")
+      expect(page.current_url).to eq(subscribem.new_user_session_url(subdomain: account.subdomain))
     end
     scenario "attempts sign in with an invalid email address and fails" do
-      visit subscribem.root_url(:subdomain => account.subdomain)
-      page.current_url.should == sign_in_url
-      page.should have_content("Please sign in.")
-      fill_in "Email", :with => "foo@example.com"
-      fill_in "Password", :with => "password"
+      visit root_url
+      expect(page.current_url).to eq(subscribem.new_user_session_url(subdomain: account.subdomain))
+      fill_in "user_email", :with => "foo@example.com"
+      fill_in "user_password", :with => "password"
       click_button "Sign in"
-      page.should have_content("Invalid email or password.")
-      page.current_url.should == sign_in_url
+      expect(page).to have_content("Invalid email or password.")
+      expect(page.current_url).to eq(subscribem.new_user_session_url(subdomain: account.subdomain))
     end
     scenario "cannot sign in if not a part of this subdomain" do
       other_account = FactoryGirl.create(:account)
       visit subscribem.root_url(:subdomain => account.subdomain)
-      page.current_url.should == sign_in_url
-      page.should have_content("Please sign in.")
-      fill_in "Email", :with => other_account.owner.email
-      fill_in "Password", :with => "password"
+      fill_in "user_email", :with => other_account.owner.email
+      fill_in "user_password", :with => "password"
       click_button "Sign in"
-      page.should have_content("Invalid email or password.")
-      page.current_url.should == sign_in_url
+      expect(page).to have_content("Invalid email or password.")
+      expect(page.current_url).to eq(subscribem.new_user_session_url(subdomain: account.subdomain))
     end
   end
 end

@@ -24,12 +24,8 @@ describe Subscribem::Account do
       }
     }
     account = Subscribem::Account.create_with_owner(params)
+    users = account.users
     expect(account).to be_persisted
-    expect(users.first.should).to eql(account.owner)
-  end
-  it "cannot create an account without a subdomain" do
-    account = Subscribem::Account.create_with_owner
-    expect(account).not_to be_valid
-    expect(account.users).not_to be_empty
+    expect(users.first.should).to eq(account.owner)
   end
 end

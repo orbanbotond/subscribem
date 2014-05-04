@@ -19,9 +19,9 @@ feature 'Accounts' do
       fill_in 'Password confirmation', :with => 'password'
       click_button 'Create Account'
       success_message = 'Your account has been successfully created.'
-      page.should have_content(success_message)
-      page.should have_content('Signed in as subscribem@example.com')
-      page.current_url.should == "http://test.example.com/"
+      expect(page).to have_content(success_message)
+      expect(page).to have_content('Signed in as subscribem@example.com')
+      expect(page.current_url).to eq("http://test.example.com/")
     end
     scenario "Ensure email uniqueness" do
       account = create :account
@@ -34,9 +34,9 @@ feature 'Accounts' do
       fill_in "Password", :with => "password", :exact => true
       fill_in "Password confirmation", :with => 'password'
       click_button "Create Account"
-      page.current_url.should == "http://example.com/accounts"
-      page.should have_content("Sorry, your account could not be created.")
-      page.should have_content("has already been taken")
+      expect(page.current_url).to eq("http://example.com/accounts")
+      expect(page).to have_content("Sorry, your account could not be created.")
+      expect(page).to have_content("has already been taken")
     end
     scenario "Ensure subdomain uniqueness" do
       Subscribem::Account.create!(:subdomain => "test", :name => "Test")
@@ -48,9 +48,9 @@ feature 'Accounts' do
       fill_in "Password", :with => "password", :exact => true
       fill_in "Password confirmation", :with => 'password'
       click_button "Create Account"
-      page.current_url.should == "http://example.com/accounts"
-      page.should have_content("Sorry, your account could not be created.")
-      page.should have_content("has already been taken")
+      expect(page.current_url).to eq( "http://example.com/accounts")
+      expect(page).to have_content("Sorry, your account could not be created.")
+      expect(page).to have_content("has already been taken")
     end
     scenario "Subdomain with restricted name" do
       visit subscribem.root_path
@@ -61,9 +61,9 @@ feature 'Accounts' do
       fill_in "Password", :with => "password"
       fill_in "Password confirmation", :with => "password"
       click_button "Create Account"
-      page.current_url.should == "http://example.com/accounts"
-      page.should have_content("Sorry, your account could not be created.")
-      page.should have_content("is not allowed. Please choose another subdomain.")
+      expect(page.current_url).to eq("http://example.com/accounts")
+      expect(page).to have_content("Sorry, your account could not be created.")
+      expect(page).to have_content("is not allowed. Please choose another subdomain.")
     end
     scenario "Subdomain with invalid name" do
       visit subscribem.root_path
@@ -74,9 +74,9 @@ feature 'Accounts' do
       fill_in "Password", :with => "password"
       fill_in "Password confirmation", :with => "password"
       click_button "Create Account"
-      page.current_url.should == "http://example.com/accounts"
-      page.should have_content("Sorry, your account could not be created.")
-      page.should have_content("is not allowed. Please choose another subdomain.")
+      expect(page.current_url).to eq("http://example.com/accounts")
+      expect(page).to have_content("Sorry, your account could not be created.")
+      expect(page).to have_content("is not allowed. Please choose another subdomain.")
     end
   end
 end

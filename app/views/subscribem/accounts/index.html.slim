@@ -1,3 +1,5 @@
 ul
   - @accounts.each do |account|
     li= account.name
+
+= link_to 'Create Account', subscribem.new_account_path

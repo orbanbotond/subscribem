@@ -1,7 +1,14 @@
-h2 Sign Up
-= simple_form_for(@account) do |account|
-  = account.input :name
-  = account.simple_fields_for :owner do |owner|
-    = render 'subscribem/account/users/form', :user => owner
-  = account.input :subdomain
-  = account.submit
+- if user_signed_in?
+  h2 Create Account
+  = simple_form_for(@account) do |account|
+    = account.input :name
+    = account.input :subdomain
+    = account.submit
+- else
+  h2 Sign Up
+  = simple_form_for(@account) do |account|
+    = account.input :name
+    = account.simple_fields_for :owner do |owner|
+      = render 'subscribem/account/users/form', :user => owner
+    = account.input :subdomain
+    = account.submit
