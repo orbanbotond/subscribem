@@ -40,6 +40,7 @@ module Subscribem
       account = new(params)
       if account.save
         account.users << account.owner
+        account.owner.confirm!
       end
       account
     end

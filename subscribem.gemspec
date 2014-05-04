@@ -30,6 +30,7 @@ Gem::Specification.new do |s|
   s.add_dependency 'omniauth-github'
 
   s.add_development_dependency 'minitest'
+  s.add_development_dependency 'mailcatcher'
   s.add_development_dependency 'annotate'
   s.add_development_dependency 'database_cleaner', '1.0.1'
   s.add_development_dependency 'pry'

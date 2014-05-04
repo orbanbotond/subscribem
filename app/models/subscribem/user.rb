@@ -16,6 +16,10 @@
 #  last_sign_in_at        :datetime
 #  current_sign_in_ip     :string(255)
 #  last_sign_in_ip        :string(255)
+#  confirmed_at           :datetime
+#  confirmation_token     :string(255)
+#  confirmation_sent_at   :datetime
+#  unconfirmed_email      :string(255)
 #
 
 module Subscribem
@@ -24,12 +28,13 @@ module Subscribem
 
     # Include default devise modules. Others available are:
     # :confirmable, :lockable, :timeoutable and :omniauthable
-    devise :database_authenticatable,
-           :registerable,
-           :recoverable,
-           :rememberable,
-           :trackable,
-           :validatable,
-           :omniauthable
+    devise  :database_authenticatable,
+            :confirmable,
+            :registerable,
+            :recoverable,
+            :rememberable,
+            :trackable,
+            :validatable,
+            :omniauthable
   end
 end
