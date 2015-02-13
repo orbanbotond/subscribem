@@ -26,6 +26,6 @@ describe Subscribem::Account do
     account = Subscribem::Account.create_with_owner(params)
     users = account.users
     expect(account).to be_persisted
-    expect(users.first.should).to eq(account.owner)
+    expect(users.first).to eq(account.owner)
   end
 end

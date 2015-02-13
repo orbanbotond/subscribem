@@ -37,13 +37,16 @@ module Subscribem
     end
 
   private
+
     def redirect_if_coming_form_sign_up
       redirect_to accounts_path if request.url =~ /#{sign_up_path}/ && user_signed_in?
     end
+
     def account_params
       params.require(:account).permit(:name, :subdomain, { :owner_attributes => [
         :email, :password, :password_confirmation
       ]})
     end
+
   end
 end

@@ -1,6 +1,5 @@
 require 'spec_helper'
 
-require "spec_helper"
 describe Subscribem::AccountsController do
   context "creates the account's schema" do
     let!(:account) { stub_model(Subscribem::Account) }

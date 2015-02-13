@@ -9,13 +9,13 @@ feature "Account scoping" do
   scenario "displays only account A's records" do
     sign_in(account_a.owner, attributes_for(:user)[:password])
     visit main_app.things_url(:subdomain => account_a.subdomain)
-    page.should have_content("Account A's Thing")
-    page.should_not have_content("Account B's Thing")
+    expect(page).to have_content("Account A's Thing")
+    expect(page).to_not have_content("Account B's Thing")
   end
   scenario "displays only account B's records" do
     sign_in(account_b.owner, attributes_for(:user)[:password])
     visit main_app.things_url(:subdomain => account_b.subdomain)
-    page.should have_content("Account B's Thing")
-    page.should_not have_content("Account A's Thing")
+    expect(page).to have_content("Account B's Thing")
+    expect(page).to_not have_content("Account A's Thing")
   end
 end
