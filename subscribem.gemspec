@@ -17,7 +17,7 @@ Gem::Specification.new do |s|
   s.files = Dir["{app,config,db,lib}/**/*", "MIT-LICENSE", "Rakefile", "README.rdoc"]
 
   s.add_dependency 'pg'
-  s.add_dependency 'rails', '~> 4.1.0'
+  s.add_dependency 'rails', '~> 4.2.0'
   s.add_dependency 'jquery-rails'
   s.add_dependency 'devise'
   s.add_dependency 'houser', '1.0.2'
@@ -31,7 +31,6 @@ Gem::Specification.new do |s|
 
   s.add_development_dependency 'minitest'
   s.add_development_dependency 'mailcatcher'
-  s.add_development_dependency 'annotate'
   s.add_development_dependency 'database_cleaner', '1.0.1'
   s.add_development_dependency 'pry'
   s.add_development_dependency 'pry-nav'

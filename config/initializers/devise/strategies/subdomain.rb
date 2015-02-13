@@ -4,7 +4,7 @@ module Devise
   module Strategies
     class SubdomainLogin < Authenticatable
       def subdomain
-        ActionDispatch::Http::URL.extract_subdomains(request.host)
+        request.subdomain
       end
 
       def valid?
