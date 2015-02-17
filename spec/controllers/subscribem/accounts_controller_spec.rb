@@ -2,7 +2,7 @@ require 'spec_helper'
 
 describe Subscribem::AccountsController do
   context "creates the account's schema" do
-    let!(:account) { stub_model(Subscribem::Account) }
+    # let!(:account) { stub_model(Subscribem::Account) }
     before do
       # Subscribem::Account.should_receive(:create_with_owner).
       # and_return(account)
