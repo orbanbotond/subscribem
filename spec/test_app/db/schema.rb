@@ -16,7 +16,7 @@ ActiveRecord::Schema.define(version: 20140504181830) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
-  create_table "subscribem_accounts", force: true do |t|
+  create_table "subscribem_accounts", force: :cascade do |t|
     t.string   "name"
     t.datetime "created_at"
     t.datetime "updated_at"
@@ -26,14 +26,14 @@ ActiveRecord::Schema.define(version: 20140504181830) do
 
   add_index "subscribem_accounts", ["subdomain"], name: "index_subscribem_accounts_on_subdomain", using: :btree
 
-  create_table "subscribem_members", force: true do |t|
+  create_table "subscribem_members", force: :cascade do |t|
     t.integer  "account_id"
     t.integer  "user_id"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
 
-  create_table "subscribem_users", force: true do |t|
+  create_table "subscribem_users", force: :cascade do |t|
     t.string   "email"
     t.string   "password_digest"
     t.datetime "created_at"
@@ -56,7 +56,7 @@ ActiveRecord::Schema.define(version: 20140504181830) do
   add_index "subscribem_users", ["email"], name: "index_subscribem_users_on_email", unique: true, using: :btree
   add_index "subscribem_users", ["reset_password_token"], name: "index_subscribem_users_on_reset_password_token", unique: true, using: :btree
 
-  create_table "things", force: true do |t|
+  create_table "things", force: :cascade do |t|
     t.string   "name"
     t.integer  "account_id"
     t.datetime "created_at"
