@@ -19,7 +19,7 @@ load 'rails/tasks/engine.rake'
 
 Bundler::GemHelper.install_tasks
 
-# require 'rake'
+require 'rake'
 # require 'rake/rdoctask'
 require 'rspec/core'
 require 'rspec/core/rake_task'
