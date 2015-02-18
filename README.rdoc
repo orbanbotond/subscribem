@@ -1,4 +1,4 @@
-= Subscribem
+== Subscribem
 
 {<img src="https://circleci.com/gh/orbanbotond/subscribem.svg?style=svg" alt="Circle CI" />}[https://circleci.com/gh/orbanbotond/subscribem]
 
