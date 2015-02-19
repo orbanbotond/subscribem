@@ -1,4 +1,6 @@
-# require "subscribem/active_record_extensions"
+# require 'pry'
+# require 'pry-nav'
+require "subscribem/active_record_extensions"
 require 'devise'
 require 'houser'
 require 'slim'
