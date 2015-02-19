@@ -28,11 +28,9 @@ Gem::Specification.new do |s|
   s.add_dependency 'omniauth-twitter'
   s.add_dependency 'omniauth-instagram'
   s.add_dependency 'omniauth-github'
-  s.add_dependency 'pry'
-  s.add_dependency 'pry-nav'
+  # s.add_dependency 'pry'
+  # s.add_dependency 'pry-nav'
 
-  s.add_development_dependency 'pry'
-  s.add_development_dependency 'pry-nav'
   s.add_development_dependency 'minitest'
   s.add_development_dependency 'mailcatcher'
   s.add_development_dependency 'database_cleaner', '1.0.1'
