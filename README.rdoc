@@ -2,4 +2,6 @@
 
 {<img src="https://circleci.com/gh/orbanbotond/subscribem.svg?style=svg" alt="Circle CI" />}[https://circleci.com/gh/orbanbotond/subscribem]
 
+[![Bitdeli Badge](https://d2weczhvl823v0.cloudfront.net/orbanbotond/subscribem/trend.png)](https://bitdeli.com/free "Bitdeli Badge")
+
 This project rocks and uses MIT-LICENSE.
