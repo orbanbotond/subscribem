@@ -25,6 +25,9 @@ module Subscribem
       if account.valid?
         flash[:success] = "Your account has been successfully created."
         if user_signed_in?
+          account.owner = current_user
+          account.users << current_user
+          account.save
           redirect_to subscribem.accounts_path
         else
           sign_in account.owner

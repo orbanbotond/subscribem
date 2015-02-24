@@ -6,5 +6,5 @@ h2
     = f.input :password, required: false
     = f.input :remember_me, as: :boolean if devise_mapping.rememberable?
   .form-actions
-    = f.button :submit, "Sign in"
+    = f.button :submit, "Sign in", class: 'btn btn-default'
 = render "devise/shared/links"
