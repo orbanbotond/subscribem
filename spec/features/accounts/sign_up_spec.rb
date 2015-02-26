@@ -11,7 +11,7 @@ feature 'Accounts' do
   context 'signed out users' do
     scenario 'creating an account' do
       visit subscribem.root_path
-      click_link 'Account Sign Up'
+      click_link 'Sign Up Today'
       fill_in 'Name', :with => 'Test'
       fill_in "Subdomain", :with => "test"
       fill_in 'Email', :with => 'subscribem@example.com'
@@ -27,7 +27,7 @@ feature 'Accounts' do
       account = create :account
       owner = account.owner
       visit subscribem.root_path
-      click_link "Account Sign Up"
+      click_link "Sign Up Today"
       fill_in "Name", :with => "another name"
       fill_in "Subdomain", :with => "anothersubdomain"
       fill_in "Email", :with => owner.email
@@ -41,7 +41,7 @@ feature 'Accounts' do
     scenario "Ensure subdomain uniqueness" do
       Subscribem::Account.create!(:subdomain => "test", :name => "Test")
       visit subscribem.root_path
-      click_link "Account Sign Up"
+      click_link "Sign Up Today"
       fill_in "Name", :with => "Test"
       fill_in "Subdomain", :with => "test"
       fill_in "Email", :with => "subscribem@example.com"
@@ -54,7 +54,7 @@ feature 'Accounts' do
     end
     scenario "Subdomain with restricted name" do
       visit subscribem.root_path
-      click_link "Account Sign Up"
+      click_link "Sign Up Today"
       fill_in "Name", :with => "Test"
       fill_in "Subdomain", :with => "admin"
       fill_in "Email", :with => "subscribem@example.com"
@@ -67,7 +67,7 @@ feature 'Accounts' do
     end
     scenario "Subdomain with invalid name" do
       visit subscribem.root_path
-      click_link "Account Sign Up"
+      click_link "Sign Up Today"
       fill_in "Name", :with => "Test"
       fill_in "Subdomain", :with => "<admin>"
       fill_in "Email", :with => "subscribem@example.com"
