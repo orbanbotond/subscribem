@@ -1,14 +1,13 @@
 doctype html
 html
   head
-    title Subscribem
+    title Your Checklists :)
     = stylesheet_link_tag    "subscribem/application", media: "all"
+    = stylesheet_link_tag    "subscribem/non-responsive", media: "all"
     = javascript_include_tag "subscribem/application"
     = csrf_meta_tags
-  body
-    - if user_signed_in?
-      | Signed in as #{current_user.email}
-      =link_to 'Log out', destroy_user_session_path, method: :delete
-    - flash.each do |k,v|
-      div class=("flash #{k}") = v
-    = yield
+  body data-no-turbolink='true'
+    .container
+      = render 'shared/header'
+      = render 'shared/flash'
+      = yield

@@ -1,7 +1,7 @@
 PATH
   remote: .
   specs:
-    subscribem (0.0.005)
+    subscribem (0.0.006)
       devise
       houser (= 1.0.2)
       jquery-rails

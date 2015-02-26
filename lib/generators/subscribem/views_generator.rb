@@ -26,6 +26,7 @@ module Subscribem
         else
           view_directory :devise
           view_directory :layouts
+          view_directory :shared
           view_directory :subscribem
         end
       end

@@ -6,6 +6,8 @@ require 'houser'
 require 'slim'
 require 'simple_form'
 require 'jquery-rails'
+require 'sass-rails'
+require 'bootstrap-sass'
 
 module Subscribem
   class Engine < ::Rails::Engine
