@@ -1,3 +1,3 @@
 module Subscribem
-  VERSION = "0.0.008"
+  VERSION = "0.0.009"
 end
