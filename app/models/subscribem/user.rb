@@ -23,7 +23,9 @@
 #
 
 module Subscribem
-  class User < ActiveRecord::Base
+  class User < ::User
+    include Subscribem::UserStorage
+
     has_many :accounts, :class_name => "Subscribem::Account", :foreign_key => "owner_id"
 
     # Include default devise modules. Others available are:
