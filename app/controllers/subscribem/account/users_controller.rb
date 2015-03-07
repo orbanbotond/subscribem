@@ -8,7 +8,7 @@ module Subscribem
     def create
       account = Subscribem::Account.find_by_subdomain!(request.subdomain)
       user = account.users.create(user_params)
-      force_authentication!(user)
+      sign_in user
       flash[:success] = "You have signed up successfully."
       redirect_to root_path
     end
