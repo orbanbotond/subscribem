@@ -1,5 +1,6 @@
 == Subscribem
 
-{<img src="https://circleci.com/gh/orbanbotond/subscribem.svg?style=svg" alt="Circle CI" />}[https://circleci.com/gh/orbanbotond/subscribem]
+{<img src="https://circleci.com/gh/orbanbotond/subscribem.svg?style=svg" alt="Circle CI" />}[https://circleci.com/gh/orbanbotond/subscribem] 
+{<img src="https://coveralls.io/repos/orbanbotond/checklists/badge.svg?branch=master" alt="Coverage Status" />}[https://coveralls.io/r/orbanbotond/checklists?branch=master] {<img src="https://gemnasium.com/orbanbotond/subscribem.svg" alt="Dependency Status" />}[https://gemnasium.com/orbanbotond/subscribem] {<img src="https://codeclimate.com/github/orbanbotond/subscribem/badges/gpa.svg" />}[https://codeclimate.com/github/orbanbotond/subscribem]
 
 This project rocks and uses MIT-LICENSE.

@@ -36,6 +36,9 @@ Gem::Specification.new do |s|
   # s.add_dependency 'pry-nav'
 
   s.add_development_dependency 'minitest'
+  s.add_development_dependency 'simplecov'
+  s.add_development_dependency 'coveralls'
+
   s.add_development_dependency 'mailcatcher'
   s.add_development_dependency 'database_cleaner', '1.0.1'
   s.add_development_dependency 'shoulda-matchers'

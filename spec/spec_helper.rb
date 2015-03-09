@@ -1,5 +1,6 @@
 # This file is copied to spec/ when you run 'rails generate rspec:install'
 ENV["RAILS_ENV"] ||= 'test'
+
 require File.expand_path("../test_app/config/environment", __FILE__)
 require 'rspec/rails'
 require 'rspec/autorun'
@@ -7,6 +8,25 @@ require 'shoulda-matchers'
 require 'capybara/rspec'
 require "factory_girl"
 require "database_cleaner"
+
+if ENV["RAILS_ENV"] == 'test'
+  unless ENV["SKIP_COV"]
+    require 'simplecov'
+    require 'coveralls'
+    SimpleCov.formatter = SimpleCov::Formatter::MultiFormatter[
+      SimpleCov::Formatter::HTMLFormatter,
+      Coveralls::SimpleCov::Formatter
+    ]
+    if ENV['CIRCLE_ARTIFACTS']
+      dir = File.join("..", "..", "..", ENV['CIRCLE_ARTIFACTS'], "coverage")
+      SimpleCov.coverage_dir(dir)
+    end
+    # SimpleCov.start 'rails'
+    SimpleCov.start 'rails' do
+      add_filter 'app/secrets'
+    end
+  end
+end
 
 # Requires supporting ruby files with custom matchers and macros, etc,
 # in spec/support/ and its subdirectories.

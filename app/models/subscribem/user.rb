@@ -32,8 +32,7 @@ module Subscribem
     # :confirmable, :lockable, :timeoutable and :omniauthable
     devise  :database_authenticatable
     devise  :confirmable
-    devise  :registerable,
-            :recoverable,
+    devise  :recoverable,
             :rememberable,
             :trackable,
             :validatable,
