@@ -28,8 +28,10 @@ module Subscribem
           account.owner = current_user
           account.users << current_user
           account.save
+          account.owner.add_role :admin, account
           redirect_to subscribem.accounts_path
         else
+          account.owner.add_role :admin, account
           sign_in account.owner
           redirect_to subscribem.root_url(:subdomain => account.subdomain)
         end
