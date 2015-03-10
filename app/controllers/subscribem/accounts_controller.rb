@@ -3,7 +3,7 @@ require_dependency "subscribem/application_controller"
 module Subscribem
   class AccountsController < ApplicationController
 
-    before_filter :redirect_if_coming_form_sign_up, only: :new
+    before_action :redirect_if_coming_form_sign_up, only: :new
     before_action :authenticate_user!, except: [:new, :create]
 
     def index

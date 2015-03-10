@@ -25,6 +25,7 @@
 module Subscribem
   class User < ::User
     include Subscribem::UserStorage
+    rolify role_join_table_name: 'subscribem_users_subscribem_roles', role_cname: 'Subscribem::Role'
 
     has_many :accounts, :class_name => "Subscribem::Account", :foreign_key => "owner_id"
 

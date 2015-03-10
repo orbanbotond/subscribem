@@ -16,6 +16,8 @@ module Subscribem
     has_many :members, :class_name => "Subscribem::Member"
     has_many :users, :through => :members
 
+    resourcify :subscribem_roles, role_cname: 'Subscribem::Role'
+
     accepts_nested_attributes_for :owner
 
     validates :subdomain,

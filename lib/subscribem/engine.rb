@@ -1,6 +1,6 @@
 # require 'pry'
 # require 'pry-nav'
-require "subscribem/active_record_extensions"
+require 'subscribem/active_record_extensions'
 require 'devise'
 require 'houser'
 require 'slim'
@@ -8,6 +8,7 @@ require 'simple_form'
 require 'jquery-rails'
 require 'sass-rails'
 require 'bootstrap-sass'
+require 'rolify'
 
 module Subscribem
   class Engine < ::Rails::Engine

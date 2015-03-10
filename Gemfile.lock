@@ -13,6 +13,7 @@ PATH
       omniauth-twitter
       pg
       rails (~> 4.2.0)
+      rolify (~> 4.0.0)
       sass-rails (~> 5.0)
       simple_form
       slim (~> 2.0.2)
@@ -197,6 +198,7 @@ GEM
     rest-client (1.7.3)
       mime-types (>= 1.16, < 3.0)
       netrc (~> 0.7)
+    rolify (4.0.0)
     rspec-core (3.2.0)
       rspec-support (~> 3.2.0)
     rspec-expectations (3.2.0)
