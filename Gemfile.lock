@@ -1,7 +1,7 @@
 PATH
   remote: .
   specs:
-    subscribem (0.0.013)
+    subscribem (0.0.014)
       bootstrap-sass (~> 3.3.3)
       devise
       houser (~> 2.0)
